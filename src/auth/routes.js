@@ -22,7 +22,7 @@ router.get(
   },
 );
 
-router.get('/logrout', async (req, res) => {
+router.get('/logout', async (req, res) => {
   req.logout();
   res.cookie('token', null);
   res.redirect('/');

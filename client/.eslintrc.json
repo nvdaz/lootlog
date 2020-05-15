@@ -32,7 +32,8 @@
       "react/jsx-curly-newline": "off",
       "no-underscore-dangle": "off",
       "import/order": ["error", {"groups": ["builtin", "external", "internal", "parent", "sibling", "index" ]}],
-      "no-return-assign": ["off", "except-parens"]
+      "no-return-assign": ["off", "except-parens"],
+      "no-nested-ternary": "off"
     },
     "settings": {
       "import/resolver": {

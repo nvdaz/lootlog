@@ -16,7 +16,7 @@ export default function Home() {
       </h1>
       <div className={classes.separator} />
       <h2 className={classes.subtitle}>
-        Premier automatic loot-tracking service.
+        Premier automatic loot tracking service.
         <br />
         {!loggedIn && <OutlinedButton>login</OutlinedButton>}
       </h2>

@@ -121,11 +121,11 @@ export default function useSettings() {
       });
     },
     setDisplayNameError:
-      mutationError?.graphQLErrors[0]?.extensions?.validationErrors
+      mutationError?.graphQLErrors?.[0]?.extensions?.validationErrors
         ?.displayName,
     setEyePriceError:
-      mutationError?.graphQLErrors[0]?.extensions?.validationErrors?.eyePrice,
+      mutationError?.graphQLErrors?.[0]?.extensions?.validationErrors?.eyePrice,
     setUsernameError:
-      mutationError?.graphQLErrors[0]?.extensions?.validationErrors?.username,
+      mutationError?.graphQLErrors?.[0]?.extensions?.validationErrors?.username,
   };
 }
