@@ -1,7 +1,5 @@
-/* eslint-disable react/jsx-no-bind */
-
 import { h, render } from 'preact';
-import { Suspense, lazy } from 'preact/compat';
+import { Suspense } from 'preact/compat';
 import Router, { route } from 'preact-router';
 import GA from 'react-ga';
 import { ApolloProvider } from '@apollo/client';
@@ -9,26 +7,16 @@ import { ApolloProvider } from '@apollo/client';
 import apolloClient from './util/apollo';
 import Header from './components/header';
 import Loading from './components/loading';
-import Home from './routes/home';
-import ErrorPage from './routes/error';
-
+import {
+  Home,
+  ErrorPage,
+  Global,
+  User,
+  Settings,
+  Setup,
+  Changelog,
+} from './routes';
 import './styles';
-
-const Global = lazy(() =>
-  import(/* webpackModuleName: "global-page" */ './routes/global'),
-);
-const User = lazy(() =>
-  import(/* webpackModuleName: "user-page" */ './routes/user'),
-);
-const Settings = lazy(() =>
-  import(/* webpackModuleName: "settings-page" */ './routes/settings'),
-);
-const Setup = lazy(() =>
-  import(/* webpackModuleName: "setup-page" */ './routes/setup'),
-);
-const Changelog = lazy(() =>
-  import(/* webpackModuleName: "changelog-page" */ './routes/changelog'),
-);
 
 GA.initialize('UA-166314499-1');
 

@@ -7,8 +7,5 @@ export default function useVersions() {
     errorPolicy: 'all',
   });
 
-  if (loading) return [];
-  if (error) return [];
-
-  return data.versions;
+  return { versions: data?.versions || [], loading, error };
 }

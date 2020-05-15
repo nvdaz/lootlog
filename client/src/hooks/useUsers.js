@@ -7,8 +7,5 @@ export default function useCurrentUser() {
     errorPolicy: 'all',
   });
 
-  if (loading) return [];
-  if (error) return null;
-
-  return data.users.filter(Boolean);
+  return { users: (data?.users || []).filter(Boolean), loading, error };
 }

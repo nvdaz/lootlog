@@ -94,19 +94,22 @@
 	height: 2rem;
   font-size: 1.0625rem;
   border-radius: 0;
+  padding-left: 8px;
   &:focus {
     outline: none;
   }
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: #eaf0fb;
+  }
+
+  &-error {
+    color: #f9f9f9;
+    background-color: #f89f9f;
   }
 }
 
 .global-button {
   display: inline-block;
-  @include sm {
-    // display: none !important;
-  }
 }
 
 .account-circle {
