@@ -1,0 +1,18 @@
+subscription onDragonAdded($owner: ID) {
+  dragonAdded(owner: $owner) {
+    _id
+      dragonType
+      rewards {
+        reward
+        count
+        appraisal
+      }
+      lastUpdated
+      eyesPlaced
+      day
+      leaderboardPlacement
+      eyePrice
+      revenue
+      gross
+  }
+}

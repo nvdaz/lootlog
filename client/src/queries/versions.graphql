@@ -1,0 +1,9 @@
+query VersionsQuery {
+  versions {
+    version
+    etag
+    _id
+    changes
+    download
+  }
+}

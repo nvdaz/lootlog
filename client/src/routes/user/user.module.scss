@@ -1,0 +1,61 @@
+@import "../../scss/base/_base-dir";
+@import "../../scss/layout/_layout-dir";
+
+.username {
+  font-family: $font-stack;
+  color: $color-primary;
+  padding: 16px;
+}
+
+.container-flex {
+  flex-wrap: wrap;
+}
+
+.sidebar-container {
+  background-color: rgba(47, 74, 84, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100%;
+  flex-basis: 25rem;
+  flex-grow: 1;
+}
+
+.table-container {
+  min-width: 65%;
+  flex-grow: 2;
+  height: 100%;
+}
+
+.graph-container {
+  display: inline;
+  margin: 16px;
+  border-radius: 8px;
+  background-color: rgba(47, 74, 84, 0.1);
+}
+
+.graph-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  padding-top: 16px;
+  padding-left: 16px;
+  text-align: left;
+}
+
+.tooltip-container {
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.tooltip-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+.tooltip-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  margin: 0;
+}

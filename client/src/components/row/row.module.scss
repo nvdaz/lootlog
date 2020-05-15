@@ -1,0 +1,44 @@
+@import "../../scss/base/_base-dir";
+@import "../../scss/layout/_layout-dir";
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-stack;
+  &-rewards {
+    @extend .column;
+    justify-content: left;
+    flex-basis: 224px;
+  }
+  &-net {
+    @extend .column;
+    flex-basis: 25%;
+  }
+  &-eyes {
+    @extend .column;
+    flex-basis: 15%;
+    @include sm {
+      flex-basis: 0;
+      display: none;
+    }
+  }
+  &-placement {
+    @extend .column;
+    flex-basis: 10%;
+  }
+  &-updated {
+    @extend .column;
+    flex-basis: 30%;
+    @include sm {
+      flex-basis: 0;
+      display: none;
+    }
+  }
+}

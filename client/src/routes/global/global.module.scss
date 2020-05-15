@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.graph-container {
+  display: inline;
+  margin: 16px;
+  border-radius: 8px;
+  background-color: rgba(47, 74, 84, 0.1);
+}
+
+.graph-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  padding-top: 16px;
+  text-align: center;
+}
+
+.tooltip-container {
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.tooltip-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+.tooltip-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  margin: 0;
+}

@@ -1,0 +1,27 @@
+@import "../../scss/base/_base-dir";
+@import "../../scss/layout/_layout-dir";
+
+.container {
+  display: grid;
+  grid-auto-columns: max-content;
+  grid-auto-flow: row;
+  justify-content: center;
+}
+
+.version-container {
+  font-family: $font-stack-body;
+  background-color: darken($color: $color-bg, $amount: 5%);
+  padding: 0.5vmax;
+  margin: 1vmax;
+  border-radius: 2px;
+}
+
+.version {
+  font-family: $font-stack;
+  font-size: 1.5rem;
+}
+
+.etag {
+  display: block;
+  font-size: 0.75rem;
+}

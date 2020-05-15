@@ -1,0 +1,27 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+      "es6": true,
+      "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "prettier"
+  ],
+  "plugins": [
+      "prettier",
+      "babel"
+  ],
+  "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2018
+  },
+  "rules": {
+    "no-console": [0],
+    "prettier/prettier": ["warn"]
+  }
+}
