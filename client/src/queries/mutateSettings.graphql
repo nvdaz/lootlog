@@ -1,0 +1,8 @@
+mutation UpdateSettings ($displayName: String, $eyePrice: Int, $username: String) {
+  updateSettings(displayName: $displayName, eyePrice: $eyePrice, username: $username) {
+    displayName
+    eyePrice
+    username
+    minecraft
+  }
+}

@@ -1,0 +1,10 @@
+query CurrentUser {
+  currentUser {
+    _id
+    minecraft
+    discord
+    username
+    displayName
+    eyePrice
+  }
+}

@@ -1,0 +1,9 @@
+.container {
+  height: calc(100vh - 96px);
+  &-flex {
+    @extend .container;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,16 @@
+@import "../../scss/base/_base-dir";
+@import "../../scss/layout/_layout-dir";
+
+.container-flex {
+  flex-direction: column;
+}
+
+.step {
+  font-family: $font-stack;
+  color: $color-primary;
+}
+
+.link {
+  color: $color-link;
+  text-decoration: none;
+}

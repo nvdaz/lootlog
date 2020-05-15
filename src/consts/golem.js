@@ -1,0 +1,7 @@
+export const rewards = ['EPIC_PET', 'LEGENDARY_PET', 'PET_TIER_BOOST'];
+
+export const itemMap = {
+  LEGENDARY_PET: 'LEGENDARY_GOLEM_PET',
+  EPIC_PET: 'EPIC_GOLEM_PET',
+  PET_TIER_BOOST: 'PET_ITEM_TIER_BOOST_DROP',
+};

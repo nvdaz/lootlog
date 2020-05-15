@@ -1,0 +1,29 @@
+query Dragons ($username: String!, $date: Date!, $skip: Int, $limit: Int, $utcOffset: Int) {
+  userByName(username:$username) {
+    _id
+    displayName
+    dragonOverviews(utcOffset: $utcOffset) {
+      day
+      dragonCount
+      dragonTypes
+      gross
+      average
+    }
+    dragons(day: $date, skip: $skip, limit: $limit, utcOffset: $utcOffset) {
+      _id
+      dragonType
+      rewards {
+        reward
+        count
+        appraisal
+      }
+      lastUpdated
+      eyesPlaced
+      day
+      leaderboardPlacement
+      eyePrice
+      revenue
+      gross
+    }
+  }
+}

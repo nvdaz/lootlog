@@ -1,0 +1,48 @@
+@import "../../scss/base/_base-dir";
+@import "../../scss/layout/_layout-dir";
+
+.title {
+  font-family: $font-stack;
+  font-size: 8rem;
+  margin: 0 0 5% 10%;
+  color: $color-primary;
+  display: inline-block;
+  vertical-align: middle;
+  @include sm {
+    font-size: 6rem;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.subtitle {
+  font-family: $font-stack-body;
+  font-size: 2rem;
+  margin: 0 0 5% 0;
+  color: $color-primary;
+  display: inline-block;
+  vertical-align: middle;
+  @include sm {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.container-flex {
+  @include sm {
+    flex-direction: column;
+  }
+}
+
+.separator {
+  border-left: solid 1px $color-primary;
+  height: 15vh;
+  margin: 0 5% 5% 5%;
+  @include sm {
+    border-left: none;
+    border-bottom: solid 1px $color-primary;
+    height: 1vh;
+    width: 50vw;
+    margin: 7.5%;
+  }
+}

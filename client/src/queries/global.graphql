@@ -1,0 +1,26 @@
+query GlobalQuery {
+  prices(type: FRAGMENTS) {
+    item
+    iqr {
+      min
+      max
+      avg
+    }
+  }
+  dragonChances {
+    dragonType
+    chance
+  }
+  # firstRewards: rewardChances(leaderboardPlacement: 1) {
+  #   rewardType
+  #   chance
+  # }
+  # secondRewards: rewardChances(leaderboardPlacement: 2) {
+  #   rewardType
+  #   chance
+  # }
+  profits {
+    date
+    profit
+  }
+}

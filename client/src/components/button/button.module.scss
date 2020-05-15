@@ -1,0 +1,25 @@
+@import "../../scss/base/__base-dir.scss";
+
+
+.button {
+  font-family: $font-stack;
+  text-transform: uppercase;
+  border: none;
+  background-color: inherit;
+  display: inline-block;
+  text-decoration: none;
+  color: $color-primary;
+  font-size: 1rem;
+  margin: 1.25%;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 3px;
+  width: fit-content;
+  &:hover {
+    background-color: rgba($color-primary, 0.1);
+  }
+  &-outlined {
+    @extend .button;
+    border: 1px solid $color-primary;
+  }
+}

@@ -1,0 +1,105 @@
+[
+  {
+    "version": "2.0.0-alpha.1",
+    "etag": "7df0aef43b74c70e1b050f664b51f558",
+    "changes": [
+      "Automatically track nicknames",
+      "Improve dragon handling to return profit"
+    ]
+  },
+  {
+    "version": "2.0.0-alpha.2",
+    "etag": "970e25476e6db0814be46f964e518c9d",
+    "changes": [
+      "Fix slight lag when changing nick"
+    ]
+  },
+  {
+    "version": "2.0.0-alpha.3",
+    "etag": "973465623eb2a105a5ddfeca248b7c97",
+    "changes": []
+  },
+  {
+    "version": "2.0.0-alpha.4",
+    "etag": "35f3421b0caa401aeb6f1a72d5f09184",
+    "changes": [
+      "Fix bug in item logging"
+    ]
+  },
+  {
+    "version": "2.0.0-alpha.5",
+    "etag": "87a2d5d782c54d371c8b28b80800dc86",
+    "changes": [
+      "Fix bug in AOTD logging"
+    ]
+  },
+  {
+    "version": "2.0.0-alpha.6",
+    "etag": "0654150222705a3b2be4faaff12e7dea",
+    "changes": []
+  },
+  {
+    "version": "2.0.0-alpha.7",
+    "etag": "72a86dcf1c420174b1525e20f8634301",
+    "changes": [
+      "Add authentication based on sessions",
+      "Prevent lag during dragons by defering requests until later"
+    ]
+  },
+  {
+    "version": "2.0.0-alpha.8",
+    "etag": "489d9fce13319183e9529e231b6a3cc4",
+    "changes": [
+      "Add command to refresh token"
+    ]
+  },
+  {
+    "version": "2.0.0-alpha.9",
+    "etag": "5ec2ee98cbc6a5706a42ffceefc4bc9c",
+    "changes": [
+      "Automatically refresh tokens when required",
+      "Add pet log"
+    ]
+  },
+  {
+    "version": "2.0.0-alpha.10",
+    "etag": "61830aea7e3ce1c32a65b763ba34c5b2",
+    "changes": [
+      "Fix pet check"
+    ]
+  },
+  {
+    "version": "2.0.0-alpha.11",
+    "etag": "5f77845aa0a8cebd63b5fab13068fa05",
+    "changes": [
+      "Add back static authorization"
+    ]
+  },
+  {
+    "version": "2.0.0",
+    "etag": "b0feb9b952a317f76230de9582bf1f96",
+    "changes": [
+      "Fix invalid authentication bug caused by Mojang update",
+      "Fix incorrect status check",
+      "Add proposed reforge update drops"
+    ]
+  },
+  {
+    "version": "2.0.0+hotfix",
+    "etag": "b0feb9b952a317f76230de9582bf1f96",
+    "changes": [
+      "Change reforge update drops match"
+    ]
+  },
+  {
+    "version": "2.1.0",
+    "etag": "pre",
+    "changes": [
+      "Fix dragon bounds",
+      "Correctly count fragments",
+      "Rename legacy files to lootlog",
+      "Fix update checking",
+      "Retry access token refreshing after failure"
+    ]
+  }
+]

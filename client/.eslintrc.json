@@ -1,0 +1,49 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "airbnb",
+        "preact",
+        "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": { 
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+      "react/prop-types": 0,
+      "import/extensions": ["error", "never"],
+      "react/jsx-no-bind": ["error", {
+        "allowArrowFunctions": true
+      }],
+      "prettier/prettier": ["warn"],
+      "react/jsx-curly-newline": "off",
+      "no-underscore-dangle": "off",
+      "import/order": ["error", {"groups": ["builtin", "external", "internal", "parent", "sibling", "index" ]}],
+      "no-return-assign": ["off", "except-parens"]
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".scss",
+            ".graphql",
+            ".jsx",
+            ".js"
+          ]
+        }
+      }
+    }
+}

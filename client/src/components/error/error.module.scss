@@ -1,0 +1,20 @@
+@import "../../scss/base/__base-dir.scss";
+@import "../../scss/layout/_layout-dir";
+
+.title {
+  font-family: $font-stack;
+  font-size: 8rem;
+  margin: 5% 0 0;
+  color: $color-error;
+  text-align: center;
+  display: block;
+}
+
+.subtitle {
+  font-family: $font-stack;
+  font-size: 2rem;
+  margin: 5% 0 5%;
+  color: $color-primary;
+  text-align: center;
+  display: block;
+}

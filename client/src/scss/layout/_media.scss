@@ -1,0 +1,11 @@
+@mixin sm {
+  @media (max-width: 480px) {
+      @content;
+  }
+}
+
+@mixin landscape-sm {
+  @media (max-height: 480px) {
+      @content;
+  }
+}
