@@ -1,5 +1,4 @@
-import './setup/env';
-import './setup/database';
+import './setup';
 import http from 'http';
 import express from 'express';
 import morgan from 'morgan';
