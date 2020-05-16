@@ -14,7 +14,7 @@ router.get(
   '/discord/redirect',
   passport.authenticate('discord', { failureRedirect: '/', session: false }),
   (req: Request, res: Response) => {
-    if (!req.user) return res.redirect('/?error?error=auth');
+    if (!req.user) return res.redirect('/error?error=auth');
     res.cookie('token', (req.user as IUser).generateAuthToken(), {
       maxAge: 6.048e8,
       httpOnly: true,
