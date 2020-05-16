@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// use typegraphql
 import got from 'got';
 import {
   AuthenticationError,
@@ -17,7 +15,7 @@ import moment from 'moment';
 import groupBy from 'lodash.groupby';
 import { coerce } from 'semver';
 
-import { tiers as slayerTiers } from '../consts/slayer';
+import { tiers as slayerTiers, SlayerReward } from '../consts/slayer';
 import pubSub, { SubType } from './pubSub';
 import getUsers from '../util/getUsers';
 import getMinecraftUser from '../util/getMinecraft';
@@ -32,6 +30,9 @@ import Reward, { IReward } from '../models/reward';
 import appraise, { Mode } from '../util/appraise';
 import { DocumentQuery } from 'mongoose';
 import { Boss } from '../consts/boss';
+import { IDragonOverview, IAuthChallenge, ISetVersionResult } from './types';
+import { DragonReward } from '../consts/dragon';
+import { GolemReward } from '../consts/golem';
 
 const dragons = (
   { _id: owner },
@@ -68,7 +69,7 @@ const dragons = (
 const dragonOverviews = async (
   { _id: owner },
   { utcOffset = 300 },
-): Promise<any> => {
+): Promise<IDragonOverview[]> => {
   const dragons = await Dragon.find({ owner });
 
   return Object.entries({
@@ -167,7 +168,7 @@ export default {
     },
   },
   Mutation: {
-    async initChallenge(root, { uuid }): Promise<any> {
+    async initChallenge(root, { uuid }): Promise<IAuthChallenge> {
       try {
         const username = (await getMinecraftUser(uuid)).username;
 
@@ -186,7 +187,7 @@ export default {
         throw new AuthenticationError('Invalid');
       }
     },
-    async completeChallenge(root, { token }): Promise<any> {
+    async completeChallenge(root, { token }): Promise<string> {
       let id, uuid, username, serverID;
       try {
         const { data } = verify(token, process.env.JWT_SECRET);
@@ -206,14 +207,14 @@ export default {
         const { statusCode } = await got(
           `https://sessionserver.mojang.com/session/minecraft/hasJoined?username=${username}&serverId=${serverID}`,
         );
-        if (statusCode === 200) {
-          return { token: (await User.findById(id)).generateAuthToken() };
-        } else throw 0;
+        if (statusCode === 200)
+          return (await User.findById(id)).generateAuthToken();
+        else throw 0;
       } catch (err) {
         throw new AuthenticationError('Did not join server');
       }
     },
-    async setVersion(root, { version }, { user }): Promise<any> {
+    async setVersion(root, { version }, { user }): Promise<ISetVersionResult> {
       const coercedVersion = coerce(version);
 
       await user.updateOne({ modVersion: coercedVersion });
@@ -231,7 +232,7 @@ export default {
       root,
       { displayName, eyePrice, username },
       { user },
-    ): Promise<any> {
+    ): Promise<IUser> {
       if (displayName) await user.updateOne({ displayName });
       if (eyePrice) await user.updateOne({ eyePrice });
       if (username) {
@@ -283,7 +284,7 @@ export default {
       { dragonType, rewards, eyesPlaced, day, leaderboardPlacement },
       { user },
     ): Promise<IDragon> {
-      const appraisedRewards = await appraise({
+      const appraisedRewards = await appraise<DragonReward>({
         rewards,
         mode: Mode.DRAGON_REWARDS,
         options: { dragonType },
@@ -316,7 +317,7 @@ export default {
       { slayerType, rewards, tier },
       { user },
     ): Promise<ISlayer> {
-      const appraisedRewards = await appraise({
+      const appraisedRewards = await appraise<SlayerReward>({
         rewards,
         mode: Mode.SLAYER_REWARDS,
       });
@@ -346,7 +347,7 @@ export default {
       { leaderboardPlacement, rewards },
       { user },
     ): Promise<IGolem> {
-      const appraisedRewards = await appraise({
+      const appraisedRewards = await appraise<GolemReward>({
         rewards,
         mode: Mode.GOLEM_REWARDS,
       });

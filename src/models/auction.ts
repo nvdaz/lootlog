@@ -1,5 +1,5 @@
 import { model, Schema, Document } from 'mongoose';
-import enumToArray from '../util/enumToArray';
+import keys from '../util/keys';
 
 export enum Modifier {
   ENCHANTED,
@@ -7,7 +7,7 @@ export enum Modifier {
   HPB,
 }
 
-export const modifiers = enumToArray<Modifier>(Modifier);
+export const modifiers = keys<Modifier>(Modifier);
 
 const AuctionSchema = new Schema({
   uuid: {

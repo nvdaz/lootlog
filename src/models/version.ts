@@ -1,11 +1,11 @@
 import { model, Schema, Model, Document } from 'mongoose';
 import memoize from 'memoize-one';
-import { valid, rcompare, gte } from 'semver';
+import { valid, rcompare, gte, SemVer } from 'semver';
 
 const VersionSchema = new Schema({
   version: {
     type: String,
-    validate: valid,
+    validate: (str): boolean => valid(str) != null,
     unique: true,
     rqeuired: true,
   },
@@ -37,7 +37,7 @@ export interface IVersion extends Document {
 
 export interface IVersionModel extends Model<IVersion> {
   getVersions(): IVersion[];
-  isCurrent(version: string): boolean;
+  isCurrent(version: SemVer | string): boolean;
 }
 
 const getVersions = memoize(

@@ -298,7 +298,7 @@ export default gql`
 
   type Mutation {
     initChallenge(uuid: ID!): AuthChallenge!
-    completeChallenge(token: String!): AuthResult!
+    completeChallenge(token: String!): String!
     setVersion(version: String!): SetVersionResult! @auth(requires: USER)
     updateSettings(
       displayName: String
@@ -336,9 +336,6 @@ export default gql`
     prices(type: PriceType!): [Price]!
     dragonChances: [DragonChance]!
     profits: [Profit]!
-    """
-    A list of versions with changelogs
-    """
     versions: [Version!]!
   }
 `;

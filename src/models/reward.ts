@@ -3,7 +3,7 @@ import { model, Schema, Document, Model, DocumentQuery } from 'mongoose';
 import { SlayerReward, rewards as slayerRewards } from '../consts/slayer';
 import { DragonReward, rewards as dragonRewards } from '../consts/dragon';
 import { GolemReward, rewards as golemRewards } from '../consts/golem';
-import enumToArray from '../util/enumToArray';
+import keys from '../util/keys';
 import { bosses, Boss } from '../consts/boss';
 
 enum MatchMode {
@@ -13,7 +13,7 @@ enum MatchMode {
   CHAT_UNFORMATTED,
 }
 
-const matchModes = enumToArray(MatchMode);
+const matchModes = keys<MatchMode>(MatchMode);
 
 const RewardSchema = new Schema({
   type: {

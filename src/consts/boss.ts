@@ -1,14 +1,17 @@
 import { DragonReward } from './dragon';
 import { SlayerReward } from './slayer';
 import { GolemReward } from './golem';
-import enumToArray from '../util/enumToArray';
+import keys from '../util/keys';
 
-export interface IBossRewardPrimitive {
-  reward: DragonReward | SlayerReward | GolemReward;
+export interface IBossRewardPrimitive<
+  E = DragonReward | SlayerReward | GolemReward
+> {
+  reward: E;
   count: number;
 }
 
-export interface IBossReward extends IBossRewardPrimitive {
+export interface IBossReward<E = DragonReward | SlayerReward | GolemReward>
+  extends IBossRewardPrimitive<E> {
   appraisal: number;
 }
 
@@ -18,4 +21,4 @@ export enum Boss {
   GOLEM = 'GOLEM',
 }
 
-export const bosses = enumToArray(Boss);
+export const bosses = keys<Boss>(Boss);
