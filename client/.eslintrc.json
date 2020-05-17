@@ -42,7 +42,8 @@
             ".scss",
             ".graphql",
             ".jsx",
-            ".js"
+            ".js",
+            ".svg"
           ]
         }
       }

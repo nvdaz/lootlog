@@ -7,8 +7,8 @@ export function meta(error) {
     // eslint-disable-next-line no-console
     console.error(error);
     if (
-      error.graphQLErrors &&
-      error.graphQLErrors[0].extensions.code === 'UNAUTHENTICATED'
+    
+      error?.graphQLErrors?.[0]?.extensions?.code === 'UNAUTHENTICATED'
     )
       return meta(UNAUTHENTICATED);
 
@@ -28,6 +28,6 @@ export function meta(error) {
         description: 'This page requires authentication.',
       };
     default:
-      return { title: 'Unknown Error', description: 'How did you get here?' };
+      return { title: 'Unknown Error', description: '' };
   }
 }
