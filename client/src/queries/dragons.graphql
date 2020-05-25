@@ -3,11 +3,11 @@ query Dragons ($username: String!, $date: Date!, $skip: Int, $limit: Int, $utcOf
     _id
     displayName
     dragonOverviews(utcOffset: $utcOffset) {
+      _id
       day
       dragonCount
       dragonTypes
       gross
-      average
     }
     dragons(day: $date, skip: $skip, limit: $limit, utcOffset: $utcOffset) {
       _id
@@ -17,7 +17,6 @@ query Dragons ($username: String!, $date: Date!, $skip: Int, $limit: Int, $utcOf
         count
         appraisal
       }
-      lastUpdated
       eyesPlaced
       day
       leaderboardPlacement

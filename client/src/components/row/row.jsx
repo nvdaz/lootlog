@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import { memo } from 'preact/compat';
 import formatDistance from 'date-fns/formatDistance';
+import ObjectID from 'bson-objectid';
 
 import Reward from '../reward';
 import format from '../../util/format';
@@ -11,12 +12,12 @@ export default memo(function _Row({
   index,
   data: {
     [index]: {
+      _id,
       rewards,
       dragonType,
       gross,
       eyesPlaced,
       leaderboardPlacement,
-      lastUpdated,
     },
   },
 }) {
@@ -42,7 +43,7 @@ export default memo(function _Row({
       </div>
       <div className={classes.columnUpdated}>
         <span>
-          {formatDistance(lastUpdated, Date.now(), {
+          {formatDistance(new ObjectID(_id).getTimestamp(), Date.now(), {
             addSuffix: true,
           }).replace(/^about ?/, '')}
         </span>

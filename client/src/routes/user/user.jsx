@@ -21,7 +21,7 @@ import Row from '../../components/row';
 import findDragon from '../../util/dragons';
 import format from '../../util/format';
 import count from '../../util/count';
-import useUser from '../../hooks/useUser';
+import useUserDragons from '../../hooks/useUserDragons';
 import classes from './user.module.scss';
 
 export default function User({ username }) {
@@ -33,7 +33,7 @@ export default function User({ username }) {
     loadMoreItems,
     loading,
     error,
-  } = useUser({ username });
+  } = useUserDragons({ username });
 
   if (loading) return <Loading />;
   if (error) return <ErrorComponent />;

@@ -1,4 +1,5 @@
-import { ApolloClient, split, InMemoryCache, HttpLink } from '@apollo/client';
+import { ApolloClient, split, InMemoryCache } from '@apollo/client';
+import { BatchHttpLink } from '@apollo/link-batch-http';
 import { getMainDefinition } from '@apollo/client/utilities';
 import { WebSocketLink } from '@apollo/link-ws';
 
@@ -12,7 +13,7 @@ const apolloClient = new ApolloClient({
       uri: process.env.GRAPHQL_WS_LINK,
       options: { reconnect: true },
     }),
-    new HttpLink({
+    new BatchHttpLink({
       uri: process.env.GRAPHQL_HTTP_LINK,
       credentials: 'same-origin',
     }),
