@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import Loading from '../../components/loading';
 import ErrorComponent from '../../components/error';
 import useSettings from '../../hooks/useSettings';
-import classes from './settings.module';
+import classes from './settings.module.scss';
 
 export default function Settings() {
   const {

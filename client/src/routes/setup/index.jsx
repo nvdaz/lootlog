@@ -1,1 +1,1 @@
-export default from './setup';
+export { default } from './setup';

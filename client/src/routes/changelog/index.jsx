@@ -1,1 +1,1 @@
-export default from './changelog';
+export { default } from './changelog';

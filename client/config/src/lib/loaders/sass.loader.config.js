@@ -9,6 +9,15 @@ export default {
             use: [
               'style-loader',
               {
+                loader: '@teamsupercell/typings-for-css-modules-loader',
+                options: {
+                  formatter: 'prettier',
+                  eol: '\n',
+                  verifyOnly: process.env.NODE_ENV === 'production',
+                  disableLocalsExport: true,
+                },
+              },
+              {
                 loader: 'css-loader',
                 options: {
                   importLoaders: 1,

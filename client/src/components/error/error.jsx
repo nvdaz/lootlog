@@ -1,7 +1,7 @@
 import { h } from 'preact';
 
 import { NOT_FOUND, meta } from '../../errors';
-import styles from './error.module';
+import styles from './error.module.scss';
 
 export default function Error({ error = NOT_FOUND }) {
   const { title, description } = meta(error);

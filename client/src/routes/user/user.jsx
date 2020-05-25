@@ -22,7 +22,7 @@ import findDragon from '../../util/dragons';
 import format from '../../util/format';
 import count from '../../util/count';
 import useUser from '../../hooks/useUser';
-import classes from './user.module';
+import classes from './user.module.scss';
 
 export default function User({ username }) {
   const {

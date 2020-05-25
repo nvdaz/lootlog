@@ -5,7 +5,7 @@ import { Button } from '../../components/button';
 import ErrorComponent from '../../components/error';
 import useVersions from '../../hooks/useVersions';
 import { HTTP_ERROR } from '../../errors';
-import classes from './changelog.module';
+import classes from './changelog.module.scss';
 
 export default function Changelog() {
   const { versions, loading, error } = useVersions();

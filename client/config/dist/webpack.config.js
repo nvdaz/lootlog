@@ -50,6 +50,22 @@ var babel = {
   },
 };
 
+var ts = {
+  module: {
+    rules: [
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader',
+          },
+        ],
+      },
+    ],
+  },
+};
+
 var graphql = {
   module: {
     rules: [
@@ -139,41 +155,10 @@ var image = {
       },
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name]-[hash:8].svg',
-            },
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                enabled: false,
-              },
-              optipng: {
-                enabled: false,
-              },
-              pngquant: {
-                enabled: false,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              webp: {
-                enabled: false,
-              },
-              svgo: {
-                enabled: true,
-                plugins: [
-                  { removeViewBox: false },
-                  { removeEmptyAttrs: false },
-                ],
-              },
-            },
-          },
-        ],
+        issuer: {
+          test: /\.[jt]sx?$/,
+        },
+        use: '@svgr/webpack',
       },
     ],
   },
@@ -189,6 +174,15 @@ var sass = {
             test: /\.module\.scss$/i,
             use: [
               'style-loader',
+              {
+                loader: '@teamsupercell/typings-for-css-modules-loader',
+                options: {
+                  formatter: 'prettier',
+                  eol: '\n',
+                  verifyOnly: process.env.NODE_ENV === 'production',
+                  disableLocalsExport: true,
+                },
+              },
               {
                 loader: 'css-loader',
                 options: {
@@ -210,7 +204,7 @@ var sass = {
   },
 };
 
-var loaders = merge(babel, graphql, image, sass);
+var loaders = merge(babel, ts, graphql, image, sass);
 
 var optimization = {
   optimization: {
@@ -297,7 +291,7 @@ var plugins = {
 
 var resolve = {
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', '.graphql', '.png', '.svg'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.graphql', '.png'],
     alias: {
       react: 'preact/compat',
       'react-dom': 'preact/compat',

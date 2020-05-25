@@ -1,12 +1,12 @@
 import { h } from 'preact';
 
-import loader from '../../img/loader.svg';
-import classes from './loading.module';
+import Loader from '../../img/loader.svg';
+import classes from './loading.module.scss';
 
 export default function Loading() {
   return (
     <div className={classes.containerFlex}>
-      <img className={classes.loader} src={loader} alt="Loading" />
+      <Loader />
     </div>
   );
 }

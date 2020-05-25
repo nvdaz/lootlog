@@ -2,7 +2,7 @@ import { h } from 'preact';
 
 import useCurrentUser from '../../hooks/useCurrentUser';
 import { OutlinedButton } from '../../components/button';
-import classes from './home.module';
+import classes from './home.module.scss';
 
 export default function Home() {
   const { loggedIn } = useCurrentUser();

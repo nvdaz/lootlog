@@ -5,7 +5,7 @@ import { UNAUTHENTICATED } from '../../errors';
 import ErrorComponent from '../../components/error';
 import Loading from '../../components/loading';
 import useCurrentUser from '../../hooks/useCurrentUser';
-import classes from './setup.module';
+import classes from './setup.module.scss';
 
 export default function Setup() {
   const { loggedIn, loading, minecraft } = useCurrentUser();

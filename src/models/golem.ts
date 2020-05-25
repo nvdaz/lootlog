@@ -6,6 +6,7 @@ import { IUser } from './user';
 const GolemSchema = new Schema({
   owner: {
     type: Schema.Types.ObjectId,
+    ref: 'User',
     trim: true,
     required: true,
   },

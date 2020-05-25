@@ -1,1 +1,1 @@
-export default from './reward';
+export { default } from './reward';

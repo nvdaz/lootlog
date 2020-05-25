@@ -1,9 +1,8 @@
 import { h, render } from 'preact';
 import { Suspense } from 'preact/compat';
 import Router, { route } from 'preact-router';
-import GA from 'react-ga';
+import { initialize, pageview } from 'react-ga';
 import { ApolloProvider } from '@apollo/client';
-
 import apolloClient from './util/apollo';
 import Header from './components/header';
 import Loading from './components/loading';
@@ -16,12 +15,12 @@ import {
   Setup,
   Changelog,
 } from './routes';
-import './styles';
+import './styles.scss';
 
-GA.initialize('UA-166314499-1');
+initialize('UA-166314499-1');
 
 const handleRoute = ({ url }) => {
-  GA.pageview(url);
+  pageview(url);
   if (url.endsWith('?redirecting')) return;
   if (url === '/download' || url.startsWith('/auth')) {
     route('/downloading');

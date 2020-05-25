@@ -4,7 +4,7 @@ import formatDistance from 'date-fns/formatDistance';
 
 import Reward from '../reward';
 import format from '../../util/format';
-import classes from './row.module';
+import classes from './row.module.scss';
 
 export default memo(function _Row({
   style,

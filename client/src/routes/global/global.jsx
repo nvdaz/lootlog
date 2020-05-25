@@ -19,7 +19,7 @@ import items from '../../util/items';
 import dragons from '../../util/dragons';
 import { HTTP_ERROR } from '../../errors';
 import GLOBAL_QUERY from '../../queries/global';
-import classes from './global.module';
+import classes from './global.module.scss';
 
 export default function Global() {
   const { data, loading, error } = useQuery(GLOBAL_QUERY);

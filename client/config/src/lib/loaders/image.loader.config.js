@@ -67,41 +67,10 @@ export default {
       },
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name]-[hash:8].svg',
-            },
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                enabled: false,
-              },
-              optipng: {
-                enabled: false,
-              },
-              pngquant: {
-                enabled: false,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              webp: {
-                enabled: false,
-              },
-              svgo: {
-                enabled: true,
-                plugins: [
-                  { removeViewBox: false },
-                  { removeEmptyAttrs: false },
-                ],
-              },
-            },
-          },
-        ],
+        issuer: {
+          test: /\.[jt]sx?$/,
+        },
+        use: '@svgr/webpack',
       },
     ],
   },

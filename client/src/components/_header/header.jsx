@@ -3,10 +3,10 @@ import { useState } from 'preact/hooks';
 import clsx from 'clsx';
 
 import { Button } from '../button';
-import accountCircle from '../../img/accountCircle.svg';
+import accountCircle from '../../icons/accountCircle';
 import useCurrentUser from '../../hooks/useCurrentUser';
 import useUsers from '../../hooks/useUsers';
-import classes from './header.module';
+import classes from './header.module.scss';
 
 export default function Header() {
   const { loggedIn, username } = useCurrentUser();

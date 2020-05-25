@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 
 import rewards from '../../util/rewards';
-import classes from './reward.module';
+import classes from './reward.module.scss';
 
 export default function Reward({
   type = 'DRAGON_REWARD',
