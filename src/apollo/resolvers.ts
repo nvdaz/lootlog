@@ -14,7 +14,7 @@ import crypto from 'crypto';
 import moment from 'moment';
 import groupBy from 'lodash.groupby';
 import { coerce } from 'semver';
-
+import { ObjectID } from 'bson';
 import { tiers as slayerTiers, SlayerReward } from '../consts/slayer';
 import pubSub, { SubType } from './pubSub';
 import getUsers from '../util/getUsers';
@@ -114,6 +114,14 @@ export default {
     serialize: (value: RegExp): string => value.toString(),
     parseLiteral: ({ kind, value }: StringValueNode): RegExp =>
       kind === Kind.STRING ? new RegExp(value) : null,
+  }),
+  ObjectID: new GraphQLScalarType({
+    name: 'ObjectID',
+    description: 'Represents a bson objectid serialized to its hex value',
+    parseValue: (value: string): ObjectID => new ObjectID(value),
+    serialize: (value: ObjectID): string => value.toString(),
+    parseLiteral: ({ kind, value }: StringValueNode): ObjectID =>
+      kind === Kind.STRING ? new ObjectID(value) : null,
   }),
   User: {
     dragons,

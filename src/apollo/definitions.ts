@@ -5,6 +5,7 @@ export default gql`
 
   scalar Date
   scalar RegExp
+  scalar ObjectID
 
   enum Role {
     ADMIN
@@ -134,7 +135,7 @@ export default gql`
   }
 
   type DragonFight {
-    _id: ID!
+    _id: ObjectID!
     owner: ID!
     dragonType: DragonType!
     rewards: [DragonReward!]!
@@ -148,7 +149,7 @@ export default gql`
   }
 
   type DragonOverview {
-    _id: ID!
+    _id: ObjectID!
     day: Date!
     revenue: Float!
     gross: Float!
@@ -158,7 +159,7 @@ export default gql`
   }
 
   type SlayerTask {
-    _id: ID!
+    _id: ObjectID!
     owner: ID!
     slayerType: SlayerType!
     rewards: [SlayerReward!]!
@@ -168,7 +169,7 @@ export default gql`
   }
 
   type GolemFight {
-    _id: ID!
+    _id: ObjectID!
     owner: ID!
     rewards: [GolemReward!]!
     revenue: Int!
@@ -260,7 +261,7 @@ export default gql`
   }
 
   type BasicUser {
-    _id: ID!
+    _id: ObjectID!
     username: String!
     displayName: String!
     dragons(day: Date, skip: Int, limit: Int, utcOffset: Int): [DragonFight]!
@@ -268,7 +269,7 @@ export default gql`
   }
 
   type User {
-    _id: ID!
+    _id: ObjectID!
     minecraft: ID!
     discord: ID!
     username: String!
@@ -285,7 +286,7 @@ export default gql`
   }
 
   type Version {
-    _id: ID!
+    _id: ObjectID!
     etag: ID!
     version: String!
     changes: [String!]!
