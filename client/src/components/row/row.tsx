@@ -1,13 +1,20 @@
-import { h } from 'preact';
+import { h, VNode } from 'preact';
 import { memo } from 'preact/compat';
 import formatDistance from 'date-fns/formatDistance';
 import ObjectID from 'bson-objectid';
 
 import Reward from '../reward';
 import format from '../../util/format';
+import { IDragon } from '../../hooks/useUserDragons';
 import classes from './row.module.scss';
 
-export default memo(function _Row({
+interface IRowProperties {
+  style: React.CSSProperties;
+  index: number;
+  data: IDragon[];
+}
+
+export default memo(function Row({
   style,
   index,
   data: {
@@ -20,7 +27,7 @@ export default memo(function _Row({
       leaderboardPlacement,
     },
   },
-}) {
+}: IRowProperties): VNode<IRowProperties> {
   return (
     <div style={style} className={classes.row}>
       <div className={classes.columnRewards}>
