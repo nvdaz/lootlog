@@ -1,5 +1,6 @@
 import Auction, { Modifier, modifiers, IAuction } from '../models/auction';
 import quantile from './quantile';
+import Bazaar from '../models/bazaar';
 
 export default async function getPrice(
   item: string,
@@ -8,6 +9,12 @@ export default async function getPrice(
   $gte: Date = new Date(Date.now() - 1.728e8),
   errorCount = 0,
 ): Promise<number> {
+  const product = await Bazaar.findItem(item);
+
+  if (product) {
+    return Math.round(product.price);
+  }
+
   const disallowedModifiers: Modifier[] = modifiers.filter(
     (mod: Modifier): boolean => !allowedModifiers.includes(mod),
   );
